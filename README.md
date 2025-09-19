@@ -1,8 +1,8 @@
-markdown
-
 # Captcha Automation with Playwright
 
 Automation system for solving Incapsula/hCaptcha using various captcha solving services with anti-detection features.
+
+---
 
 ## Supported Captcha Solving Services
 
@@ -10,128 +10,117 @@ Automation system for solving Incapsula/hCaptcha using various captcha solving s
 - ✅ SolveCaptcha
 - ✅ Capsolver
 
+---
+
 ## Prerequisites
 
 - Windows OS
 - Python 3.8+
 - Git (optional)
 
+---
+
 ## Installation
 
-1. **Clone or download the project**
+1. **Clone or download the project:**
+
    ```bash
    git clone <your-repo-url>
-   cd captcha-automation
-   Configure environment variables
+   cd capcha_solver_exemple
    ```
 
-Copy .env.example to .env
+2. **Configure environment variables:**
 
-Edit .env with your configuration:
+   - Copy `.env.example` to `.env`
+   - Edit `.env` with your configuration:
+     ```
+     SOLVER_TYPE=capmonster
+     API_KEY=your_actual_api_key
+     TARGET_URL=https://site-with-captcha.com
+     PROXY=http://user:pass@proxy.com:8080
+     HEADLESS=False
+     ```
 
-env
-SOLVER_TYPE=capmonster
-API_KEY=your_actual_api_key
-TARGET_URL=https://site-with-captcha.com
-PROXY=http://user:pass@proxy.com:8080
-HEADLESS=False
-Run installation (double-click on Makefile.win or use command line)
+3. **Install dependencies and set up environment:**
+   - Double-click `Makefile.win` (if associated with `make`)
+   - Or use command line:
+     ```bash
+     make -f Makefile.win install
+     ```
 
-bash
-make -f Makefile.win install
-Usage
-Quick Start
-Edit the .env file with your settings
+---
 
-Double-click on Makefile.win - it will automatically install and run
+## Usage
 
-Or use command line:
+1. **Edit the `.env` file** with your settings.
 
-bash
-make -f Makefile.win run
-Manual Commands
-bash
+2. **Run automation:**
+   - Double-click `Makefile.win`
+   - Or use command line:
+     ```bash
+     make -f Makefile.win run
+     ```
 
+### Manual Commands
+
+```bash
 # Install dependencies
-
 make -f Makefile.win install
 
 # Run automation
-
 make -f Makefile.win run
 
 # Clean project
-
 make -f Makefile.win clean
+```
 
-# Show help
+### If you prefer Python commands:
 
-make -f Makefile.win help
-Configuration (.env file)
-Variable Description Example
-SOLVER_TYPE Captcha solving service capmonster
-API_KEY Your API key for the service abc123...
-TARGET_URL URL of the protected page https://example.com
-PROXY Optional proxy (HTTP/HTTPS) http://user:pass@host:port
-HEADLESS Run browser in background True/False
-LOG_LEVEL Logging level INFO/DEBUG
-Project Structure
-text
-captcha-automation/
-├── Makefile.win # Windows automation script
-├── .env # Configuration file
-├── requirements.txt # Python dependencies
-├── main.py # Main automation script
-├── browser_manager.py # Browser management with anti-detection
-├── base_solver.py # Base captcha solver class
-├── capmonster_solver.py # CapMonster implementation
-├── solvecaptcha_solver.py # SolveCaptcha implementation
-└── capsolver_solver.py # Capsolver implementation
-Troubleshooting
-If Make doesn't work: Run commands manually:
-
-bash
+```bash
 python -m venv .venv
 .\.venv\Scripts\pip install -r requirements.txt
 .\.venv\Scripts\python -m playwright install chromium
 .\.venv\Scripts\python main.py
-Proxy issues: Check your proxy format in .env
+```
 
-API key errors: Verify your API key with the captcha service
+---
 
-Browser issues: Try setting HEADLESS=False to see what happens
+## Troubleshooting
 
-Features
-✅ Multiple captcha solving services
+- **Proxy issues:** Check your proxy format in `.env`
+- **API key errors:** Verify your API key with the captcha service
+- **Browser issues:** Try setting `HEADLESS=False` to see browser window
 
-✅ Anti-detection browser automation
+---
 
-✅ Proxy support with authentication
+## Features
 
-✅ Configurable via environment variables
+- ✅ Multiple captcha solving services
+- ✅ Anti-detection browser automation
+- ✅ Proxy support with authentication
+- ✅ Configurable via environment variables
+- ✅ Automatic retries on failure
+- ✅ Comprehensive logging
 
-✅ Automatic retries on failure
+---
 
-✅ Comprehensive logging
+## License
 
-License
 MIT License - feel free to use for your projects!
 
-text
+---
 
-## Як запустити на Windows:
+## Як запустити на Windows (Ukrainian):
 
 1. **Збережіть всі файли** в одну папку
 2. **Перейменуйте Makefile.win** просто в `Makefile` (якщо використовуєте Git Bash)
 3. **Налаштуйте `.env` файл** з вашими даними:
-
    - API ключ від обраного сервісу капчі
    - URL сайту з капчею
    - Проксі (якщо потрібно)
-
-4. **Запуск**:
+4. **Запуск:**
    - **Подвійний клік на Makefile** (якщо асоційовано з make)
-   - **Або в командному рядку**:
+   - **Або в командному рядку:**
      ```cmd
      make install
      make run
