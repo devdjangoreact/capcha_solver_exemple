@@ -1,0 +1,6 @@
+brouser_dir/
+__pycache__/
+.env
+.vscode/
+env.bak
+.venv/
